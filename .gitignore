@@ -1,0 +1,9 @@
+virt/
+
+migrations/
+
+__pycache__/
+
+db.sqlite/
+
+media/
