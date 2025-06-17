@@ -5,6 +5,7 @@ class Product(models.Model):
     name= models.CharField(200)
     mrp=models.PositiveIntegerField()
     img=models.ImageField(upload_to='products',null=True)
+    desc = models.TextField(max_length=500, null = True)
 
 
     def __str__(self):

@@ -2,8 +2,11 @@
 <div class="card ">
     <div class="card-img w-100">
         {% if product.img %}
+        <a href="{% url 'product-detail' product.id %}">
         <img src="{{ product.img.url }}" class = 'w-100' alt="{{product.name}}'s picture">
+    </a>
         {% else %}
+        
         <img src="{% static 'images/placeholders/no-image.jpg' %}" alt="">
         {% endif %}
     </div>
@@ -11,7 +14,7 @@
        <div class="card-body">
         <div class="card-title">
             <h5>
-                <a href="productCard.html">
+                <a href="{% url 'product-detail' product.id %}">
                 {{ product.name }}
                 </a>
             </h5>

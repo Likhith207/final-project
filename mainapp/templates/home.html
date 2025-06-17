@@ -5,6 +5,8 @@
  
 
  {% block content %}
+
+ {% include 'includes/carousel.html' %}
 <div class="container-fluid product-container"  >
     {% for product in products %}
         {% include 'includes/components/productCard.html' %}

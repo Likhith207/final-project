@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+ Add product
+{% endblock %}
+
+ {% block content %}
+
+<div class="add_product">
+    <form method="post" class="form-control w=50 " enctype="multipart/form-data" >
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="row w-100">
+            <label for="{{field.name }}" class="col-4">
+                {{field.name}}
+            </label>
+            <div>
+                {{field}}
+            </div>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary"> Add Product</button>
+    </form>
+    
+</div>
+{% endblock %}

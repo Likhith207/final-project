@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ product.name }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col">
+            <img src="{{product.img.url}}" alt="Image of {{product.name}}" class="w-100 round-edge"> 
+        </div>
+
+        <div class="col">
+            <h4 class="pn">
+                {{product.name}}
+            </h4>
+            <p>
+                &#8377; {{ product.mrp }}
+            </p>
+            {% if product.desc %}
+            <div class="text-secondary">
+                {{product.desc}}
+            </div>
+            {% endif %}
+            <div class="w-100 mx-2 my-5 row justify-content-evenly">
+
+                
+                <a href="{% url 'edit_product' product.id %}" class="btn btn-secondary col-3">Edit Product</a>
+                <a href="{% url 'delete_product' product.id %}" class="btn btn-danger col-3">Delete Product</a>
+
+                <a href="" class="btn btn-primary col-3">Add to Cart</a>
+                
+                
+            </div>
+            
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
