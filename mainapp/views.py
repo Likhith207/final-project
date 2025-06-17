@@ -2,13 +2,27 @@ from django.shortcuts import render
 
 from django.views.generic import CreateView,ListView,DeleteView,DetailView,UpdateView
 from .models import Product
-
+from .forms import AddProductForm
+from seller.models import ProductListing
+from authentication.models import Profile
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 
 # Create your views here.
 
 def homeView(request):
-
+    try: 
+        profile = Profile.objects.get(user = request.user)
+        # print("Yeay")
+        if profile.user_role == 'seller':
+            # print("seller")
+            return redirect('seller_home')
+        else:
+            pass
+            
+    except:
+        pass
+        # print("no")
     products=Product.objects.all()
     context ={
         
@@ -22,9 +36,16 @@ def homeView(request):
 
 class AddProduct(CreateView):
     model=Product
-    fields='__all__'
+    # fields='__all__'
+    form_class = AddProductForm
     template_name='add_product.html'
     success_url=reverse_lazy('homepage')
+    
+    def form_valid(self, form):
+        form.instance.seller_profile = self.request.user.user_profile
+        return super().form_valid(form)
+    
+    
 
 class ProductDetails(DetailView):
     model=Product

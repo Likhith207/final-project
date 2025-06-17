@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ product.name }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col">
+            <img src="{{product.img.url}}" alt="Image of {{product.name}}" class="w-100 round-edge"> 
+        </div>
+
+        <div class="col">
+            <h4 class="pn">
+                {{product.name}}
+            </h4>
+            <p>
+                &#8377; {{ product.mrp }}
+            </p>
+            {% if product.desc %}
+            <div class="text-secondary">
+                {{product.desc}}
+            </div>
+            {% endif %}
+            <div class="w-100 mx-2 my-5 row justify-content-evenly">
+
+                
+                <!-- <a href="{% url 'add_listing' product.id %}" class="btn btn-warning">List</a> -->
+                
+                
+            </div>
+            
+        </div>
+
+    </div>
+
+</div>
+
+<section>
+    <h2>Listings</h2>
+
+    {% if not listed %}
+    <section>
+    <div class="listing-form">
+        <form action="{% url 'add_listing' product.id %}" method="post">
+            {% csrf_token %}
+            {{ listing_form.as_p }}
+            <button type="submit">Add listing</button>
+
+        </form>
+
+    </div>
+    </section>
+    {% endif %}
+
+    <div class="col">
+        {% for listing in listings %}
+        <div class="row">
+            <div class="card">
+                <div class="card-text">
+                    Seller {{listing.seller.first_name}} Listed the product for Rs.{{listing.selling_price}}
+                </div>                
+            </div>
+        </div>
+        {% empty %}
+        No listings
+        {% endfor %}
+
+    </div>
+</section>
+
+
+{% endblock %}

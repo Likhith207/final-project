@@ -23,10 +23,15 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('mainapp.urls')),
+    path('seller/', include('seller.urls')),
 
 
     path('accounts/', include('authentication.urls')),
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    path('cart/', include('cart.urls')),
+    path('orders/', include('orders.urls')),
+    path('payments/',include('payments.urls')),
 
 ]
 

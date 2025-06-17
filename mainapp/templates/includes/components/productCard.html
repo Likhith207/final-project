@@ -20,10 +20,33 @@
             </h5>
         </div>
         <p class="card-text">
+            {% if product.least_selling_price >= 0 %}
+            <del>
+                &#8377; {{ product.mrp }}
+            </del>
+            <span>
+                &#8377; {{product.least_selling_price}} 
+            </span>
+            {% else %}
+            <span>
             &#8377; {{ product.mrp }}
-        </p>    
-        <a href="" class="btn btn-primary w-10">
+            </span>
+            {% endif %}
+            
+            
+        </p> 
+        {% if product.listing_id %}
+        <div>
+  
+        <a href="{% url 'add_to_cart' product.listing_id %}" class="btn btn-primary w-10">
             Add to Cart
         </a>
+        </div>
+        {% else %}
+        <a href="" class="btn inactive">
+            Out of Stock
+        </a>
+
+        {% endif %}
     </div>
 </div>

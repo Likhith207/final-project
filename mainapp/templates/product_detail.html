@@ -10,7 +10,7 @@
 <div class="container-fluid ">
     <div class="row">
         <div class="col">
-            <img src="{{product.img.url}}" alt="Image of {{product.name}}" class="w-100 round-edge"> 
+            <img src="{{product.img.url}}" alt="Image of {{product.name}}" class="w-100 round-edge">
         </div>
 
         <div class="col">
@@ -18,7 +18,18 @@
                 {{product.name}}
             </h4>
             <p>
-                &#8377; {{ product.mrp }}
+                {% if product.least_selling_price >= 0 %}
+                <del>
+                    &#8377; {{ product.mrp }}
+                </del>
+                <span>
+                    &#8377; {{product.least_selling_price}}
+                </span>
+                {% else %}
+                <span>
+                    &#8377; {{ product.mrp }}
+                </span>
+                {% endif %}
             </p>
             {% if product.desc %}
             <div class="text-secondary">
@@ -27,15 +38,29 @@
             {% endif %}
             <div class="w-100 mx-2 my-5 row justify-content-evenly">
 
-                
+                {% if user.is_staff %}
+
                 <a href="{% url 'edit_product' product.id %}" class="btn btn-secondary col-3">Edit Product</a>
                 <a href="{% url 'delete_product' product.id %}" class="btn btn-danger col-3">Delete Product</a>
 
-                <a href="" class="btn btn-primary col-3">Add to Cart</a>
-                
-                
+                {% endif %}
+
+                {% if product.listing_id %}
+                <div>
+
+                    <a href="{% url 'add_to_cart' product.listing_id %}" class="btn btn-primary w-10">
+                        Add to Cart
+                    </a>
+                </div>
+                {% else %}
+                <a href="" class="btn inactive">
+                    Out of Stock
+                </a>
+
+                {% endif %}
+
             </div>
-            
+
         </div>
 
     </div>

@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-
+from .models import Profile
 from django import forms
 
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
@@ -52,3 +52,8 @@ class CustomLoginForm(AuthenticationForm):
             }
         )
     )
+
+class ProfileCreationForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']
