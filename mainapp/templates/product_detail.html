@@ -48,12 +48,14 @@
                 {% if product.listing_id %}
                 <div>
 
+                    {% if not user.is_staff %}
                     <a href="{% url 'add_to_cart' product.listing_id %}" class="btn btn-primary w-10">
                         Add to Cart
                     </a>
+                    {% endif %}
                 </div>
                 {% else %}
-                <a href="" class="btn inactive">
+                <a class="btn inactive">
                     Out of Stock
                 </a>
 

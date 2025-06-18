@@ -15,6 +15,7 @@ class Profile(models.Model):
     profile_photo=models.ImageField(upload_to='profiles/')
     phone_number=models.PositiveIntegerField()
     address=models.TextField()
+    email = models.EmailField(null = True)
 
 
     def __str__ (self):
