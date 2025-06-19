@@ -4,11 +4,11 @@
 {% endblock %}
 
 {% block content %}
-<div class="container my-5 py-5">
-    <form method="post" class="bg-dark text-light" enctype="multipart/form-data">
+<div class="profileform-container">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Create</button>
+        <button type="submit" class="bg-info" >Create</button>
 
         {{form.non_field_errors}}
     </form>

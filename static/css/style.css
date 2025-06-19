@@ -36,14 +36,14 @@ body {
 
         .carousel {
             width: auto;
-            height: 300px;
+            height: 600px;
             background-color: rgb(211, 229, 229);
 
             .carousel-inner {
-                height: 300px;
+                height: 600px;
 
                 img {
-                    height: 300px;
+                    height: 600px;
                     object-fit: fill;
                 }
             }
@@ -117,18 +117,196 @@ body {
                 box-sizing: border-box;
 
             }
-
-
-
-
-
         }
 
 
     }
 
+
+
+
+/* Proile Form Styling Starts */
+
+/* Add this to your static CSS file or within a <style> tag in your template */
+
+.profileform-container {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #f7f9fc;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profileform-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.profileform-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileform-container label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #555;
+}
+
+.profileform-container input[type="text"],
+.profileform-container input[type="email"],
+.profileform-container input[type="number"],
+.profileform-container input[type="file"],
+.profileform-container select,
+.profileform-container textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: border-color 0.3s;
+    font-size: 14px;
+}
+
+.profileform-container input:focus,
+.profileform-container select:focus,
+.profileform-container textarea:focus {
+    border-color: #00bcd4;
+    outline: none;
+}
+
+.profileform-container .bg-info {
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profileform-container .bg-info:hover {
+    background-color: #0097a7;
+}
+
+.profileform-container .errorlist {
+    color: #e53935;
+    font-size: 13px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+/* Proile Form Styling Ends */
+
+.profile-container{
+    margin-top: 9rem; /* Equivalent to Bootstrap's mt-5 */
+}
+
+.proedit-container{
+    margin-top: 12rem; /* Equivalent to Bootstrap's mt-5 */
+}
+
+
+
+
     footer {
         background-color: rgb(198, 184, 232);
     }
 
+}
+
+@media screen and (min-width: 450px) and (max-width: 849px) {
+  body header i {
+    font-size: 20px;
+  }
+
+  body header nav {
+    background-color: lightblue;
+  }
+
+  body main {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  body main .carousel {
+    height: 250px;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  body main .carousel{
+    height: 250px;
+    width: 900px;
+  }
+
+   .carousel-inner img {
+    width: 850px;;
+    height: 250px;
+    object-fit:contain;
+  }
+
+  /* body main .product-container {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 30px 35px;
+    gap: 25px;
+  } */
+
+  body main .product-container {
+    width: 90%;
+    margin: auto;
+    margin-top: 15px;
+    margin-left: 15px;
+    height: auto;
+  
+    grid-template-columns: auto auto auto  ;
+    margin-bottom: auto;
+    margin-left: 50px;
+  }
+
+  body main .signin-container,
+  body main .signup-container,
+  body main .add_product {
+    max-width: 90%;
+    margin: 100px auto;
+    padding: 20px;
+  }
+  .card-img{
+    width:80%;
+    height: auto;
+    
+    
+  }
+
+  body main .signin-container button,
+  body main .signup-container button,
+  body main .add_product button {
+    width: 100%;
+    
+  }
+
+  body main .signin-container:hover ,.signup-container:hover{
+    box-shadow: 0 0 12px rgb(217, 13, 9);
+    background-image: none;
+    
+  }
+
+  footer {
+    width: 900px;
+    padding: 5px;
+  }
+ .card{
+    width:auto;
+    height:80%;
+
+ }
+  .card-img{
+    overflow: hidden;
+  }
 }

@@ -37,9 +37,9 @@
             {% else %}
             <li><a class="dropdown-item " href="{% url 'create_profile' %}">Create Profile</a></li>
             {% endif %}
-
+            {% if not user.user_profile.user_role == 'seller' %}
             <li><a class="dropdown-item " href="{% url 'order_history_2' %}">Past Orders</a></li>
-            
+            {% endif %}
           </ul>
         </li>
         {% endif %}
